@@ -1,0 +1,1 @@
+console.log("Extension load with success\n");

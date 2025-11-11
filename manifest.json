@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Improved Intra",
+  "version": "1.0",
+  "description": "Améliore l'Intra de l'école",
+  "content_scripts": [
+    {
+      "matches": ["https://profile-v3.intra.42.fr/*"],
+      "js": ["content.js"],
+      "css": ["style.css"]
+    }
+  ],
+  "permissions": ["storage"]
+}
