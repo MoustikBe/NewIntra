@@ -60,27 +60,6 @@ function applyDarkModeToHeader() {
     else {
         //console.log('❌ Barre du haut non trouvée');
     }
-    
-    const specificBars = [
-        '.flex.flex-row.grow.h-16.gap-3',
-        '.grow.h-16.hidden.md\\:flex',
-        '.flex.flex-row.items-center.w-full',
-        '.h-full.flex.items-center.md\\:hidden'
-    ];
-    
-    specificBars.forEach(selector => {
-        const elements = document.querySelectorAll(selector);
-        elements.forEach(el => {
-            //console.log(`✅ Barre spécifique trouvée: ${selector}`);
-            el.style.backgroundColor = "#2C2C2C";
-            el.style.color = "#FFFFFF";
-            
-            el.querySelectorAll('*').forEach(child => {
-                child.style.backgroundColor = "#2C2C2C";
-                child.style.color = "#FFFFFF";
-            });
-        });
-    });
 }
 
 function applyDarkModeToFooter() {
@@ -234,6 +213,22 @@ function applyDarkModeToGrid(grid) {
     /* Border for profile */
     const borderProfile = document.querySelectorAll('.flex.gap-4.p-4.flex-col.border-r.pr-4').forEach(el => el.classList.remove('border-r'));
 
+    /* Hoover */
+    const styleHooverProject = document.createElement('style');
+    styleHooverProject.textContent = `
+        .block.hover\\:bg-zinc-100.focus\\:bg-zinc-100:hover {
+            background-color: #343434f9 !important;
+        }
+    `;
+    document.head.appendChild(styleHooverProject);
+
+    const styleHooverDoneProject = document.createElement('style');
+    styleHooverDoneProject.textContent = `
+        .flex.flex-row.justify-between.hover\\:bg-gray-300.p-2 { 
+            background-color: #2C2C2C !important;
+        }
+    `;
+    document.head.appendChild(styleHooverDoneProject);
 }
 
 /* Setting the button to the side bar */
