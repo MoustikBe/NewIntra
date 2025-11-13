@@ -39,18 +39,18 @@ function applyDarkModeToHeader() {
     if (topBar) {
         //console.log('Barre du haut trouvée');
         
-        topBar.style.backgroundColor = "#1E1E1E";
+        topBar.style.backgroundColor = "#2C2C2C";
         topBar.style.color = "#FFFFFF";
         const applyDarkToAllChildren = (element) => {
-            element.style.backgroundColor = "#1E1E1E";
+            element.style.backgroundColor = "#2C2C2C";
             element.style.color = "#FFFFFF";
             
             if (element.classList.contains('h-16')) {
-                element.style.backgroundColor = "#1E1E1E";
+                element.style.backgroundColor = "#2C2C2C";
             }
             
             if (element.classList.contains('grow') || element.classList.contains('w-full')) {
-                element.style.backgroundColor = "#1E1E1E";
+                element.style.backgroundColor = "#2C2C2C";
             }
             Array.from(element.children).forEach(child => applyDarkToAllChildren(child));
         };
@@ -72,11 +72,11 @@ function applyDarkModeToHeader() {
         const elements = document.querySelectorAll(selector);
         elements.forEach(el => {
             //console.log(`✅ Barre spécifique trouvée: ${selector}`);
-            el.style.backgroundColor = "#1E1E1E";
+            el.style.backgroundColor = "#2C2C2C";
             el.style.color = "#FFFFFF";
             
             el.querySelectorAll('*').forEach(child => {
-                child.style.backgroundColor = "#1E1E1E";
+                child.style.backgroundColor = "#2C2C2C";
                 child.style.color = "#FFFFFF";
             });
         });
@@ -230,6 +230,10 @@ function applyDarkModeToGrid(grid) {
         * { scrollbar-width: thin; scrollbar-color: #555 #1E1E1E; }
     `;
     document.head.appendChild(style);
+
+    /* Border for profile */
+    const borderProfile = document.querySelectorAll('.flex.gap-4.p-4.flex-col.border-r.pr-4').forEach(el => el.classList.remove('border-r'));
+
 }
 
 /* Setting the button to the side bar */
